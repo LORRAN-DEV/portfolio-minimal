@@ -41,7 +41,7 @@ function DemoExperience({ project, onBack }: { project: (typeof projects)[number
   const questions = sales ? [["Como recebo o material?", "Esta área explicaria o acesso e a entrega do produto digital."], ["Preciso de experiência?", "A oferta pode apresentar orientações para iniciantes e usuários avançados."], ["Existe garantia?", "As condições reais de garantia devem ser informadas antes da publicação."]] : [["Como faço para saber mais?", "Entre em contato pelo canal de atendimento do estabelecimento."], ["Preciso agendar ou reservar?", "O fluxo pode ser conectado a um canal de atendimento real quando o projeto for personalizado."], ["Onde encontro mais informações?", "As seções desta página organizam os principais detalhes para facilitar a navegação."]];
   const featureImage = hotel ? "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1200&q=85" : clinic ? "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=85" : "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85";
   return <section className={"demo-site demo-site--" + project.kind} id="project-detail">
-    <div className="demo-topline"><span>DEMONSTRAÇÃO INTERATIVA · DADOS FICTÍCIOS</span><button type="button" onClick={onBack}><ArrowLeft size={14}/> Voltar ao portfólio</button></div>
+    <div className="demo-topline"><span>DEMONSTRAÇÃO INTERATIVA · DADOS FICTÍCIOS</span></div>
     <header className="demo-nav"><a href="#demo-home" className="demo-brand">{brand}</a><nav>{nav.map((item,i)=><a key={item} href={navTargets[i]}>{item}</a>)}</nav><a className="demo-nav-cta" href="#demo-contact">{sales ? "VER OFERTA" : hotel ? "CONSULTAR ESTADIA" : "AGENDAR AVALIAÇÃO"}</a></header>
     <section className="demo-hero" id="demo-home" style={{backgroundImage:"linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.12)),url("+project.image+")"}}><div className="demo-hero-copy"><span>{clinic ? "SAÚDE · ESTÉTICA · BEM-ESTAR" : hotel ? "HOSPITALIDADE · NATUREZA · CONFORTO" : "MATERIAL DIGITAL · CONTEÚDO PRÁTICO"}</span><h2>{clinic ? "Seu momento de cuidado." : hotel ? "Seu lugar para respirar." : "Ideias prontas para acontecer."}</h2><p>{clinic ? "Cuidado, beleza e bem-estar em uma experiência feita para você." : hotel ? "Um refúgio tranquilo para desacelerar e aproveitar cada momento." : "Tudo o que você precisa para transformar sua paixão em uma renda extra."}</p><a href="#demo-part-1">{sales ? "CONHECER A OFERTA" : "CONHECER A EXPERIÊNCIA"} <ArrowUpRight size={15}/></a></div><span className="demo-hero-mark">{project.id} / CONCEPT</span></section>
     <section className="demo-intro" id="demo-part-0"><span>{clinic ? "SOBRE A CLÍNICA" : hotel ? "SOBRE A EXPERIÊNCIA" : "UMA NOVA FORMA DE ORGANIZAR SUA ROTINA"}</span><h3>{clinic ? "Um espaço pensado para acolher você em cada detalhe." : hotel ? "Mais do que uma hospedagem, uma pausa no ritmo da cidade." : "O essencial reunido em um só lugar, com acesso simples e prático."}</h3><p>{clinic ? project.name + " é uma marca fictícia criada para demonstrar uma presença digital acolhedora e sofisticada. Conteúdo, equipe e serviços são ilustrativos." : hotel ? "Forest Retreat é uma marca fictícia inspirada na estrutura do projeto Forest Inn. Ambientes, acomodações e serviços não representam uma operação real." : "Doce Estação é uma oferta fictícia. Conteúdo, benefícios, preço e condições são apenas ilustrativos."}</p></section>
@@ -139,7 +139,17 @@ function Portfolio() {
           <h1><span className="title-line">Ideias transformadas</span><span className="title-line">em experiências digitais<span className="title-dot">.</span></span></h1>
           <div className="intro-bottom">
             <p>Web design, desenvolvimento de sites<br className="desktop-break" /> e landing pages com intenção.</p>
-            <a className="text-link magnetic-link" href="#projects">Explorar projetos <ArrowDownRight size={16} /></a>
+            {selectedProject ? (
+              <button className="text-link magnetic-link intro-back-link" type="button" onClick={() => {
+                setSelectedProject(null);
+                window.history.replaceState(null, "", "/#projects");
+                window.setTimeout(() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+              }}><ArrowLeft size={16} /> Voltar ao portfólio</button>
+            ) : (
+              <span className="explore-cue" aria-label="Explore os projetos abaixo">
+                Explorar projetos <ArrowDownRight size={16} />
+              </span>
+            )}
           </div>
           <span className="intro-index" aria-hidden="true">SCROLL TO EXPLORE ↓</span>
         </section>
