@@ -50,7 +50,6 @@ function DemoExperience({ project, onBack }: { project: (typeof projects)[number
     <div className="demo-topline"><span>DEMONSTRAÇÃO INTERATIVA · DADOS FICTÍCIOS</span><button type="button" onClick={onBack}><ArrowLeft size={14}/> Voltar ao portfólio</button></div>
     <header className="demo-nav"><a href="#demo-home" className="demo-brand">{brand}</a><nav>{nav.map((item,i)=><a key={item} href={navTargets[i]}>{item}</a>)}</nav><a className="demo-nav-cta" href="#demo-contact">{sales ? "VER OFERTA" : hotel ? "CONSULTAR ESTADIA" : "AGENDAR AVALIAÇÃO"}</a></header>
     <section className="demo-hero" id="demo-home" style={{backgroundImage:"linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.12)),url("+project.image+")"}}><div className="demo-hero-copy"><span>{clinic ? "SAÚDE · ESTÉTICA · BEM-ESTAR" : hotel ? "HOSPITALIDADE · NATUREZA · CONFORTO" : "MATERIAL DIGITAL · CONTEÚDO PRÁTICO"}</span><h2>{clinic ? "Seu momento de cuidado." : hotel ? "Seu lugar para respirar." : "Ideias prontas para acontecer."}</h2><p>{clinic ? "Cuidado, beleza e bem-estar em uma experiência feita para você." : hotel ? "Um refúgio tranquilo para desacelerar e aproveitar cada momento." : "Tudo o que você precisa para transformar sua paixão em uma renda extra."}</p><a href="#demo-part-1">{sales ? "CONHECER A OFERTA" : "CONHECER A EXPERIÊNCIA"} <ArrowUpRight size={15}/></a></div><span className="demo-hero-mark">{project.id} / CONCEPT</span></section>
-    <div className="demo-techline"><span>TECNOLOGIAS</span><div>{["React", "TypeScript", "CSS", "TanStack Start", "Vite"].map((tech) => <small key={tech}>{tech}</small>)}</div><a href={"/?demo=" + project.id} target="_blank" rel="noopener noreferrer">Ver na web <ArrowUpRight size={14}/></a></div>
     <section className="demo-intro" id="demo-part-0"><span>{clinic ? "SOBRE A CLÍNICA" : hotel ? "SOBRE A EXPERIÊNCIA" : "UMA NOVA FORMA DE ORGANIZAR SUA ROTINA"}</span><h3>{clinic ? "Um espaço pensado para acolher você em cada detalhe." : hotel ? "Mais do que uma hospedagem, uma pausa no ritmo da cidade." : "O essencial reunido em um só lugar, com acesso simples e prático."}</h3><p>{clinic ? project.name + " é uma marca fictícia criada para demonstrar uma presença digital acolhedora e sofisticada. Conteúdo, equipe e serviços são ilustrativos." : hotel ? "Forest Retreat é uma marca fictícia inspirada na estrutura do projeto Forest Inn. Ambientes, acomodações e serviços não representam uma operação real." : "Doce Estação é uma oferta fictícia. Conteúdo, benefícios, preço e condições são apenas ilustrativos."}</p></section>
     <section className="demo-services" id="demo-part-1"><div className="demo-section-heading"><span>{clinic ? "ÁREAS DE CUIDADO" : hotel ? "ACOMODAÇÕES" : "O QUE VOCÊ RECEBE"}</span><h3>{clinic ? "Conheça nossas especialidades." : hotel ? "Encontre seu espaço ideal." : "Um conteúdo pensado para facilitar."}</h3></div><div className="demo-service-grid">{cards.map(([name,desc],i)=><article key={name}><span>0{i+1}</span><h4>{name}</h4><p>{desc}</p><a href="#demo-contact">SAIBA MAIS ↗</a></article>)}</div></section>
     <section className="demo-feature" id="demo-part-2"><div className="demo-feature-image" style={{backgroundImage:"url("+featureImage+")"}}/><div><span>{clinic ? "NOSSO ESPAÇO" : hotel ? "DETALHES QUE ACOLHEM" : "MATERIAL DEMONSTRATIVO"}</span><h3>{clinic ? "Conforto em cada etapa da sua jornada." : hotel ? "Uma estadia pensada para você aproveitar." : "Apresentação clara, visual e objetiva."}</h3><p>{clinic ? "Ambientes, profissionais e informações de atendimento seriam apresentados aqui com dados fornecidos pelo estabelecimento." : hotel ? "Galeria de ambientes, comodidades e informações práticas ajudam o visitante a escolher sua hospedagem." : "Imagens ilustrativas, lista de entregáveis, benefícios, bônus e uma oferta clara ajudam a explicar o valor do produto."}</p></div></section>
@@ -74,10 +73,10 @@ function Portfolio() {
   );
 
   useEffect(() => {
-    const demoId = new URLSearchParams(window.location.search).get("demo");
-    if (!demoId) return;
-    const demoProject = projects.find((project) => project.id === demoId && project.kind !== "portfolio");
-    if (demoProject) setSelectedProject(demoProject);
+    const projectId = new URLSearchParams(window.location.search).get("project");
+    if (!projectId) return;
+    const project = projects.find((item) => item.id === projectId);
+    if (project) setSelectedProject(project);
   }, []);
 
 
@@ -171,6 +170,15 @@ function Portfolio() {
             </div>
           </div>}
 
+          {selectedProject && (
+            <div className="detail-tech-row project-tech-outside">
+              <div>
+                <p className="eyebrow">TECNOLOGIAS</p>
+                <div className="detail-tech-list">{["React", "TypeScript", "CSS", "TanStack Start", "Vite"].map((tech) => <span key={tech}>{tech}</span>)}</div>
+              </div>
+              <a className="detail-live-button" href={"/?project=" + selectedProject.id} target="_blank" rel="noopener noreferrer">Ver na web <ArrowUpRight size={16} /></a>
+            </div>
+          )}
           {!selectedProject ? (
             <>
               <div className="project-grid" aria-live="polite" key={activeFilter}>
@@ -224,10 +232,6 @@ function Portfolio() {
                   <p className="detail-subtitle">{selectedProject.tools}</p>
                 </div>
                 <span className="detail-year">{selectedProject.year}</span>
-              </div>
-              <div className="detail-tech-row">
-                <div><p className="eyebrow">TECNOLOGIAS</p><div className="detail-tech-list">{["React", "TypeScript", "CSS", "TanStack Start", "Vite"].map((tech) => <span key={tech}>{tech}</span>)}</div></div>
-                <a className="detail-live-button" href={"/?demo=" + selectedProject.id} target="_blank" rel="noopener noreferrer">Ver na web <ArrowUpRight size={16} /></a>
               </div>
               <div className={"detail-hero " + selectedProject.tone}>
                 <img src={selectedProject.image} alt={"Imagem principal do conceito " + selectedProject.name} />
