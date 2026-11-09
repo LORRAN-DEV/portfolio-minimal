@@ -308,3 +308,26 @@ button { color: inherit; }
  .demo-contact { padding:50px 20px; }
  .demo-footer { flex-direction:column; }
 }
+
+
+.demo-gallery { padding:62px 7%; background:#f6f3ec; }
+.demo-gallery>div:first-child>span,.demo-review>span,.demo-offer>span { color:#777; font-size:9px; letter-spacing:.16em; }
+.demo-gallery h3,.demo-review h3,.demo-offer h3 { margin:14px 0 24px; font-family:Georgia,serif; font-size:clamp(28px,4vw,40px); line-height:1.12; font-weight:400; }
+.demo-gallery-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:12px; }
+.demo-gallery-grid img { width:100%; height:220px; object-fit:cover; filter:saturate(.72); }
+.demo-review { padding:62px 8%; text-align:center; }
+.demo-review p { max-width:600px; margin:20px auto 10px; color:#777; font-family:Georgia,serif; font-size:20px; line-height:1.5; }
+.demo-review small,.demo-offer small { color:#85837c; font-size:8px; letter-spacing:.08em; }
+.demo-offer { padding:62px 8%; text-align:center; background:#eadfce; }
+.demo-offer p { font-size:22px; font-family:Georgia,serif; }
+.demo-offer a { display:table; margin:20px auto 0; padding:13px 18px; background:#292e27; color:white; font-size:9px; letter-spacing:.1em; }
+.demo-site--clinic .demo-review { background:#f5eae5; }
+.demo-site--hotel .demo-review { background:#e6e7dc; }
+.demo-site--sales .demo-review { background:#fbf5eb; }
+@media(max-width:640px) {
+ .demo-gallery { padding:46px 18px; }
+ .demo-gallery-grid { grid-template-columns:1fr 1fr; }
+ .demo-gallery-grid img { height:160px; }
+ .demo-gallery-grid img:first-child { grid-column:1/-1; height:200px; }
+ .demo-review,.demo-offer { padding:48px 20px; }
+}
