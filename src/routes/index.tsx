@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDownRight, ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowDownRight, ArrowLeft, ArrowUpRight, Menu, X } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,6 +28,7 @@ const projects = [
 function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("Todos");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const visibleProjects = useMemo(
     () => activeFilter === "Todos" ? projects : projects.filter((project) => project.type === activeFilter),
@@ -113,7 +114,7 @@ function Portfolio() {
             <span className="project-count" key={visibleProjects.length}>({String(visibleProjects.length).padStart(2, "0")})</span>
           </div>
 
-          <div className="filter-area">
+          {!selectedProject && <div className="filter-area">
             <p className="eyebrow">DISCIPLINAS</p>
             <div className="filter-list" role="group" aria-label="Filtrar projetos por categoria">
               {filters.map((filter) => (
@@ -122,30 +123,97 @@ function Portfolio() {
                 </button>
               ))}
             </div>
-          </div>
+          </div>}
 
-          <div className="project-grid" aria-live="polite" key={activeFilter}>
-            {visibleProjects.map((project, index) => (
-              <article className="project-card" key={project.id} style={{ animationDelay: `${index * 90}ms` }}>
-                <div className={`project-visual ${project.tone}`}>
-                  <img className="project-image" src={project.image} alt={project.description} loading="lazy" />
-                  <span className="visual-index">PROJECT / {project.id}</span>
-                  <span className="concept-stamp">CONCEPT PROJECT</span>
-                  <span className="visual-corner"><ArrowUpRight size={19} strokeWidth={1.3} /></span>
-                  <span className="visual-scan" aria-hidden="true" />
+          {!selectedProject ? (
+            <>
+              <div className="project-grid" aria-live="polite" key={activeFilter}>
+                {visibleProjects.map((project, index) => (
+                  <button className="project-card project-card-button" key={project.id} type="button" style={{ animationDelay: String(index * 90) + "ms" }}
+                    onClick={() => {
+                      setSelectedProject(project);
+                      window.history.replaceState(null, "", "#project-" + project.id);
+                      window.setTimeout(() => document.getElementById("project-detail")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+                    }}
+                    aria-label={"Ver detalhes do projeto " + project.name}>
+                    <span className={"project-visual " + project.tone}>
+                      <img className="project-image" src={project.image} alt={project.description} loading="lazy" />
+                      <span className="visual-index">PROJECT / {project.id}</span>
+                      <span className="concept-stamp">CONCEPT PROJECT</span>
+                      <span className="visual-corner"><ArrowUpRight size={19} strokeWidth={1.3} /></span>
+                      <span className="visual-scan" aria-hidden="true" />
+                    </span>
+                    <span className="project-meta">
+                      <span>
+                        <span className="project-card-title">{project.name}</span>
+                        <span className="project-card-tools">{project.tools}</span>
+                      </span>
+                      <span className="project-year">{project.year}</span>
+                    </span>
+                    <span className="project-category">{project.type}</span>
+                  </button>
+                ))}
+              </div>
+              <p className="content-note">PROJETOS CONCEITUAIS — marcas e experiências fictícias criadas apenas para demonstrar possibilidades de design.</p>
+            </>
+          ) : (
+            <section className="project-detail" id="project-detail" aria-live="polite">
+              <button className="detail-back" type="button" onClick={() => {
+                setSelectedProject(null);
+                window.history.replaceState(null, "", "#projects");
+                window.setTimeout(() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+              }}>
+                <ArrowLeft size={15} /> Voltar para todos os projetos
+              </button>
+              <div className="detail-heading">
+                <div>
+                  <p className="eyebrow">PROJECT / {selectedProject.id} — CONCEPT</p>
+                  <h2>{selectedProject.name}<span>.</span></h2>
+                  <p className="detail-subtitle">{selectedProject.tools}</p>
                 </div>
-                <div className="project-meta">
-                  <div>
-                    <h3>{project.name}</h3>
-                    <p>{project.tools}</p>
-                  </div>
-                  <span className="project-year">{project.year}</span>
+                <span className="detail-year">{selectedProject.year}</span>
+              </div>
+              <div className={"detail-hero " + selectedProject.tone}>
+                <img src={selectedProject.image} alt={"Imagem principal do conceito " + selectedProject.name} />
+                <span className="concept-stamp">CONCEPT PROJECT · ESTUDO VISUAL</span>
+              </div>
+              <div className="detail-overview">
+                <div>
+                  <p className="eyebrow">VISÃO GERAL</p>
+                  <h3>{selectedProject.description}</h3>
                 </div>
-                <span className="project-category">{project.type}</span>
-              </article>
-            ))}
-          </div>
-          <p className="content-note">PROJETOS CONCEITUAIS — marcas e experiências fictícias criadas apenas para demonstrar possibilidades de design.</p>
+                <p>Um estudo conceitual de presença digital que explora direção de arte, hierarquia de informação e uma experiência de navegação pensada para o público da marca.</p>
+              </div>
+              <div className="detail-information">
+                <article>
+                  <p className="eyebrow">01 / OBJETIVO</p>
+                  <p>Criar uma apresentação digital clara e memorável, destacando a identidade do negócio e conduzindo o visitante às informações mais importantes.</p>
+                </article>
+                <article>
+                  <p className="eyebrow">02 / DIREÇÃO CRIATIVA</p>
+                  <p>Composição editorial, imagens protagonistas, tipografia expressiva e interações sutis para equilibrar personalidade visual e facilidade de uso.</p>
+                </article>
+                <article>
+                  <p className="eyebrow">03 / EXPERIÊNCIA</p>
+                  <p>Navegação responsiva, conteúdo organizado por prioridade e pontos de contato visíveis para facilitar a jornada do visitante.</p>
+                </article>
+              </div>
+              <div className="detail-gallery">
+                <div className="detail-gallery-image">
+                  <img src={selectedProject.image} alt={"Detalhe visual do projeto " + selectedProject.name} loading="lazy" />
+                </div>
+                <div className="detail-gallery-caption">
+                  <span>VISUAL DIRECTION / {selectedProject.name}</span>
+                  <span>ESTUDO CONCEITUAL</span>
+                </div>
+              </div>
+              <div className="detail-bottom">
+                <p className="eyebrow">GOSTOU DA DIREÇÃO?</p>
+                <h3>Vamos criar algo<br />para sua marca<span>?</span></h3>
+                <a className="contact-link" href="#contact">Iniciar um projeto <ArrowUpRight size={17} /></a>
+              </div>
+            </section>
+          )}
         </section>
 
         <section className="about-section" id="about" data-reveal="fade">
