@@ -235,3 +235,76 @@ button { color: inherit; }
   .detail-gallery-caption { flex-direction: column; }
   .project-card-title { font-size: 17px; }
 }
+
+
+/* Full-page fictional project demonstrations */
+.demo-site { margin-top:18px; color:#292923; background:#f4f1e9; overflow:hidden; animation:detail-enter .55s ease both; }
+.demo-topline { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:11px 15px; background:#111; color:#c9c9c2; font-size:8px; letter-spacing:.12em; }
+.demo-topline button { display:flex; align-items:center; gap:7px; border:0; background:transparent; color:#eee; font-size:10px; cursor:pointer; }
+.demo-nav { min-height:70px; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 5%; background:#f7f5ef; }
+.demo-brand { font-family:Georgia,serif; font-size:21px; letter-spacing:.04em; }
+.demo-nav nav { display:flex; flex-wrap:wrap; justify-content:center; gap:18px; }
+.demo-nav nav a { color:#666; font-size:10px; }
+.demo-nav-cta { padding:11px 14px; background:#252a24; color:#fff; font-size:9px; letter-spacing:.08em; }
+.demo-hero { position:relative; min-height:440px; display:flex; align-items:center; padding:8%; background-size:cover; background-position:center; color:#fff; }
+.demo-hero-copy { max-width:570px; }
+.demo-hero-copy>span,.demo-intro>span,.demo-section-heading>span,.demo-feature>div:last-child>span,.demo-faq>span,.demo-contact>span { font-size:9px; letter-spacing:.18em; }
+.demo-hero h2 { margin:18px 0; font-family:Georgia,serif; font-size:clamp(38px,6vw,68px); line-height:1.02; font-weight:400; letter-spacing:-.045em; }
+.demo-hero p { max-width:390px; color:rgba(255,255,255,.83); font-size:13px; line-height:1.8; }
+.demo-hero-copy>a { display:inline-flex; align-items:center; gap:10px; margin-top:15px; padding:13px 17px; border:1px solid rgba(255,255,255,.7); font-size:9px; letter-spacing:.1em; }
+.demo-hero-mark { position:absolute; right:18px; bottom:16px; color:rgba(255,255,255,.7); font-size:8px; letter-spacing:.15em; }
+.demo-intro { max-width:800px; margin:auto; padding:76px 8%; text-align:center; }
+.demo-intro>span,.demo-section-heading>span,.demo-feature>div:last-child>span,.demo-faq>span { color:#777; }
+.demo-intro h3,.demo-section-heading h3,.demo-feature h3,.demo-faq h3,.demo-contact h3 { margin:17px 0; font-family:Georgia,serif; font-size:clamp(29px,4vw,43px); line-height:1.12; font-weight:400; letter-spacing:-.035em; }
+.demo-intro p,.demo-feature p { color:#74736d; font-size:12px; line-height:1.9; }
+.demo-services { padding:65px 7%; background:#e9e5dc; }
+.demo-section-heading { margin-bottom:27px; }
+.demo-service-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.demo-service-grid article { min-height:190px; padding:22px 18px; border:1px solid rgba(40,40,35,.17); background:rgba(255,255,255,.38); transition:transform .3s,background .3s; }
+.demo-service-grid article:hover { transform:translateY(-5px); background:#fff; }
+.demo-service-grid article>span { color:#999; font-size:9px; }
+.demo-service-grid h4 { margin:24px 0 8px; font-family:Georgia,serif; font-size:20px; font-weight:400; }
+.demo-service-grid p { min-height:43px; color:#777; font-size:11px; line-height:1.7; }
+.demo-service-grid a { display:inline-block; margin-top:10px; font-size:8px; letter-spacing:.12em; }
+.demo-feature { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:35px; padding:70px 7%; }
+.demo-feature-image { min-height:300px; background-size:cover; background-position:center; }
+.demo-feature>div:last-child { max-width:400px; }
+.demo-faq { padding:65px 9%; background:#e9e5dc; }
+.demo-faq h3 { margin-bottom:27px; }
+.demo-faq details { padding:17px 0; border-top:1px solid rgba(40,40,35,.2); }
+.demo-faq summary { cursor:pointer; font-size:12px; }
+.demo-faq details p { max-width:650px; color:#777; font-size:11px; line-height:1.8; }
+.demo-contact { padding:65px 8%; text-align:center; background:#292e27; color:#f4f1e9; }
+.demo-contact h3 { max-width:590px; margin:18px auto; }
+.demo-contact p { color:#c5c6bd; font-size:11px; line-height:1.8; }
+.demo-contact a { display:inline-flex; align-items:center; gap:10px; margin-top:14px; padding:13px 17px; border:1px solid #c9c8bd; font-size:9px; letter-spacing:.1em; }
+.demo-footer { display:flex; justify-content:space-between; gap:12px; padding:17px 5%; background:#171916; color:#a5a69d; font-size:8px; letter-spacing:.1em; }
+.demo-site--clinic { background:#f5f0ec; }
+.demo-site--clinic .demo-nav-cta,.demo-site--clinic .demo-contact { background:#745d58; }
+.demo-site--clinic .demo-services,.demo-site--clinic .demo-faq { background:#eee4df; }
+.demo-site--clinic .demo-service-grid article { border-color:rgba(116,93,88,.2); }
+.demo-site--hotel { background:#f2f0e7; }
+.demo-site--hotel .demo-nav-cta,.demo-site--hotel .demo-contact { background:#485342; }
+.demo-site--hotel .demo-services,.demo-site--hotel .demo-faq { background:#e6e7dc; }
+.demo-site--sales { background:#fbf5eb; }
+.demo-site--sales .demo-nav-cta,.demo-site--sales .demo-contact { background:#79533d; }
+.demo-site--sales .demo-services,.demo-site--sales .demo-faq { background:#f2e7d8; }
+@media(max-width:640px) {
+ .demo-topline { align-items:flex-start; font-size:7px; }
+ .demo-nav { flex-wrap:wrap; min-height:0; padding:15px; }
+ .demo-nav nav { order:3; width:100%; justify-content:flex-start; gap:13px; overflow-x:auto; padding-top:8px; }
+ .demo-nav nav a { white-space:nowrap; font-size:9px; }
+ .demo-nav-cta { font-size:8px; padding:9px; }
+ .demo-hero { min-height:390px; padding:25px 20px; }
+ .demo-hero h2 { font-size:42px; }
+ .demo-intro { padding:52px 22px; }
+ .demo-services { padding:48px 18px; }
+ .demo-service-grid { grid-template-columns:1fr; }
+ .demo-service-grid article { min-height:0; }
+ .demo-service-grid h4 { margin-top:17px; }
+ .demo-feature { grid-template-columns:1fr; gap:22px; padding:48px 20px; }
+ .demo-feature-image { min-height:230px; }
+ .demo-faq { padding:48px 22px; }
+ .demo-contact { padding:50px 20px; }
+ .demo-footer { flex-direction:column; }
+}
