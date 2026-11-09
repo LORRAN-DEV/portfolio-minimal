@@ -17,10 +17,12 @@ export const Route = createFileRoute("/")({
 const filters = ["Todos", "Web Design", "Landing Pages", "E-commerce", "Institucional"];
 
 const projects = [
-  { id: "01", name: "Projeto em destaque", year: "2026", type: "Web Design", tools: "Design · Desenvolvimento", tone: "project-visual--one", note: "Substitua pela imagem do seu projeto" },
-  { id: "02", name: "Projeto em destaque", year: "2026", type: "Landing Pages", tools: "Landing page · Conversão", tone: "project-visual--two", note: "Substitua pela imagem do seu projeto" },
-  { id: "03", name: "Projeto em destaque", year: "2025", type: "Institucional", tools: "Website · Responsivo", tone: "project-visual--three", note: "Substitua pela imagem do seu projeto" },
-  { id: "04", name: "Projeto em destaque", year: "2025", type: "E-commerce", tools: "E-commerce · UI/UX", tone: "project-visual--four", note: "Substitua pela imagem do seu projeto" },
+  { id: "01", name: "AURA", year: "2026", type: "Web Design", tools: "Estética · Wellness · Website", tone: "project-visual--one", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85", description: "Experiência digital para um espaço de bem-estar e estética." },
+  { id: "02", name: "NŌMA", year: "2026", type: "Institucional", tools: "Hotelaria · Hospitality · Website", tone: "project-visual--two", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85", description: "Site institucional de um hotel boutique com foco em reservas." },
+  { id: "03", name: "FORMA", year: "2025", type: "Web Design", tools: "Barbearia · Branding · Website", tone: "project-visual--three", image: "https://images.unsplash.com/photo-1503951914875-4521620b0b6f?auto=format&fit=crop&w=1200&q=85", description: "Presença digital para uma barbearia contemporânea." },
+  { id: "04", name: "ATELIÊ", year: "2025", type: "E-commerce", tools: "Lifestyle · Loja online · UI/UX", tone: "project-visual--four", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85", description: "Loja conceito para uma marca independente de lifestyle." },
+  { id: "05", name: "VÉRTICE", year: "2025", type: "Institucional", tools: "Arquitetura · Portfólio · Website", tone: "project-visual--one", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85", description: "Portfólio digital para um estúdio de arquitetura." },
+  { id: "06", name: "ESSENZA", year: "2025", type: "Landing Pages", tools: "Skincare · Campanha · Landing page", tone: "project-visual--two", image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=1200&q=85", description: "Landing page de campanha para uma marca de skincare." },
 ];
 
 function Portfolio() {
@@ -126,11 +128,9 @@ function Portfolio() {
             {visibleProjects.map((project, index) => (
               <article className="project-card" key={project.id} style={{ animationDelay: `${index * 90}ms` }}>
                 <div className={`project-visual ${project.tone}`}>
+                  <img className="project-image" src={project.image} alt={project.description} loading="lazy" />
                   <span className="visual-index">PROJECT / {project.id}</span>
-                  <div className="visual-placeholder">
-                    <span>IMAGE</span>
-                    <small>{project.note}</small>
-                  </div>
+                  <span className="concept-stamp">CONCEPT PROJECT</span>
                   <span className="visual-corner"><ArrowUpRight size={19} strokeWidth={1.3} /></span>
                   <span className="visual-scan" aria-hidden="true" />
                 </div>
@@ -145,7 +145,7 @@ function Portfolio() {
               </article>
             ))}
           </div>
-          <p className="content-note">Os espaços acima são marcadores temporários para inserir as imagens e informações dos seus projetos reais.</p>
+          <p className="content-note">PROJETOS CONCEITUAIS — marcas e experiências fictícias criadas apenas para demonstrar possibilidades de design.</p>
         </section>
 
         <section className="about-section" id="about" data-reveal="fade">
