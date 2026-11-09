@@ -37,7 +37,8 @@ function DemoExperience({ project, onBack }: { project: (typeof projects)[number
   const hotel = project.kind === "hotel";
   const sales = project.kind === "sales";
   const brand = clinic ? project.name : hotel ? "FOREST RETREAT" : "DOCE ESTAÇÃO.";
-  const nav = clinic ? ["A clínica", "Especialidades", "Estrutura", "Dúvidas"] : hotel ? ["Experiência", "Acomodações", "Galeria", "Contato"] : ["Oferta", "Conteúdo", "Bônus", "Dúvidas"];\n  const navTargets = hotel ? ["#demo-part-0", "#demo-part-1", "#demo-gallery", "#demo-contact"] : sales ? ["#demo-part-0", "#demo-part-1", "#demo-bonus", "#demo-faq"] : ["#demo-part-0", "#demo-part-1", "#demo-part-2", "#demo-part-3"];
+  const nav = clinic ? ["A clínica", "Especialidades", "Estrutura", "Dúvidas"] : hotel ? ["Experiência", "Acomodações", "Galeria", "Contato"] : ["Oferta", "Conteúdo", "Bônus", "Dúvidas"];
+  const navTargets = hotel ? ["#demo-part-0", "#demo-part-1", "#demo-gallery", "#demo-contact"] : sales ? ["#demo-part-0", "#demo-part-1", "#demo-bonus", "#demo-faq"] : ["#demo-part-0", "#demo-part-1", "#demo-part-2", "#demo-part-3"];
   const cards = clinic
     ? [["Estética facial", "Cuidados personalizados para realçar sua beleza natural."], ["Estética corporal", "Protocolos demonstrativos focados em bem-estar."], ["Saúde integrativa", "Uma visão ampla do cuidado e da qualidade de vida."]]
     : hotel
