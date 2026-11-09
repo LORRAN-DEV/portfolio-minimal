@@ -167,3 +167,71 @@ button { color: inherit; }
   [data-reveal], [data-reveal="clip"] { opacity: 1; transform: none; clip-path: none; }
   .cursor-follower { display: none; }
 }
+
+
+/* Dedicated project detail view */
+.project-card-button {
+  display: block; width: 100%; padding: 0; border: 0; text-align: left;
+  color: inherit; background: transparent; cursor: pointer;
+}
+.project-card-button:focus-visible, .detail-back:focus-visible {
+  outline: 1px solid #eee; outline-offset: 5px;
+}
+.project-card-title { display: block; margin: 0 0 5px; font-size: 21px; font-weight: 300; letter-spacing: -.05em; transition: letter-spacing .3s, color .3s; }
+.project-card-tools { display: block; margin: 0; color: #999; font-size: 10px; }
+.project-card-button:hover .project-card-title { letter-spacing: -.025em; color: #fff; }
+.project-detail { padding-top: 8px; animation: detail-enter .65s cubic-bezier(.2,.7,.2,1) both; scroll-margin-top: 24px; }
+.detail-back {
+  display: inline-flex; align-items: center; gap: 9px; padding: 9px 0;
+  border: 0; border-bottom: 1px solid #555; background: transparent;
+  color: #c7c7c3; font-size: 11px; cursor: pointer;
+  transition: gap .25s, color .25s;
+}
+.detail-back:hover { gap: 14px; color: #fff; }
+.detail-heading {
+  display: flex; align-items: end; justify-content: space-between;
+  gap: 20px; padding: 42px 0 24px;
+}
+.detail-heading .eyebrow { margin-bottom: 13px; }
+.detail-heading h2 { margin: 0; font-size: clamp(46px, 8vw, 82px); line-height: .95; font-weight: 300; letter-spacing: -.075em; }
+.detail-heading h2 span, .detail-bottom h3 span { color: #858581; }
+.detail-subtitle { margin: 13px 0 0; color: #a1a19c; font-size: 11px; }
+.detail-year { color: #858581; font-size: 11px; padding-bottom: 5px; }
+.detail-hero { position: relative; height: clamp(230px, 48vw, 480px); overflow: hidden; background: #202020; }
+.detail-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg,rgba(0,0,0,.35),transparent 45%); pointer-events: none; }
+.detail-hero img, .detail-gallery-image img {
+  width: 100%; height: 100%; display: block; object-fit: cover;
+  filter: saturate(.65) brightness(.82); animation: detail-image-in 1.1s cubic-bezier(.2,.7,.2,1) both;
+}
+.detail-hero .concept-stamp { z-index: 2; }
+.detail-overview {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 34px;
+  padding: 42px 0; border-bottom: 1px solid var(--line); align-items: end;
+}
+.detail-overview .eyebrow { margin-bottom: 14px; }
+.detail-overview h3 { max-width: 440px; margin: 0; font-size: clamp(23px, 3.4vw, 34px); line-height: 1.13; font-weight: 300; letter-spacing: -.045em; }
+.detail-overview > p, .detail-information article > p:last-child {
+  margin: 0; color: #a0a09b; font-size: 12px; line-height: 1.85;
+}
+.detail-information { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; padding: 30px 0 38px; }
+.detail-information article { border-top: 1px solid #555; padding-top: 13px; }
+.detail-information .eyebrow { margin-bottom: 13px; }
+.detail-gallery-image { height: clamp(190px, 35vw, 340px); overflow: hidden; background: #1d1d1d; }
+.detail-gallery-image img { transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.detail-gallery-image:hover img { transform: scale(1.035); }
+.detail-gallery-caption { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; color: #777; font-size: 8px; letter-spacing: .1em; }
+.detail-bottom { margin-top: 42px; padding: 26px 0 34px; border-top: 1px solid var(--line); }
+.detail-bottom .eyebrow { margin-bottom: 14px; }
+.detail-bottom h3 { margin: 0 0 22px; font-size: clamp(32px, 5vw, 48px); line-height: 1.05; font-weight: 300; letter-spacing: -.06em; }
+@keyframes detail-enter { from { opacity: 0; transform: translateY(18px); filter: blur(4px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+@keyframes detail-image-in { from { opacity: .35; transform: scale(1.045); } to { opacity: 1; transform: scale(1); } }
+@media (max-width: 640px) {
+  .detail-heading { padding-top: 30px; }
+  .detail-overview { grid-template-columns: 1fr; gap: 17px; padding: 30px 0; }
+  .detail-information { grid-template-columns: 1fr; gap: 18px; padding-bottom: 28px; }
+  .detail-information article { display: grid; grid-template-columns: 110px 1fr; gap: 12px; }
+  .detail-information .eyebrow { margin: 0; }
+  .detail-information article > p:last-child { font-size: 11px; }
+  .detail-gallery-caption { flex-direction: column; }
+  .project-card-title { font-size: 17px; }
+}
