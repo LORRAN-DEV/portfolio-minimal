@@ -186,7 +186,7 @@ function Portfolio() {
                   <button className="project-card project-card-button" key={project.id} type="button" style={{ animationDelay: String(index * 90) + "ms" }}
                     onClick={() => {
                       setSelectedProject(project);
-                      window.history.replaceState(null, "", "#project-" + project.id);
+                      window.history.replaceState(null, "", "/?project=" + project.id);
                       window.setTimeout(() => document.getElementById("project-detail")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
                     }}
                     aria-label={"Ver detalhes do projeto " + project.name}>
