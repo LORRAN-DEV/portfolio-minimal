@@ -180,7 +180,7 @@ function Portfolio() {
                 <p className="eyebrow">TECNOLOGIAS</p>
                 <div className="detail-tech-list">{["React", "TypeScript", "CSS", "TanStack Start", "Vite"].map((tech) => <span key={tech}>{tech}</span>)}</div>
               </div>
-              <a className="detail-live-button" href={"/?project=" + selectedProject.id} target="_blank" rel="noopener noreferrer">Ver na web <ArrowUpRight size={16} /></a>
+              <button className="detail-live-button" type="button" aria-label="Ver na web — demonstração visual, link desativado">Ver na web <ArrowUpRight size={16} /></button>
             </div>
           )}
           {!selectedProject ? (
