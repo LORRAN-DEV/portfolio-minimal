@@ -352,3 +352,13 @@ button { color: inherit; }
  .demo-techline { align-items:flex-start; flex-direction:column; padding:18px 20px; }
  .demo-techline>a { width:100%; justify-content:center; }
 }
+
+
+/* Shared project information sits outside every interactive demo */
+.project-tech-outside { margin:0 0 22px; padding:18px 18px 20px; border:1px solid var(--line); background:rgba(245,243,237,.035); }
+.project-tech-outside .detail-tech-list span { color:var(--muted); }
+.project-tech-outside .detail-live-button { min-width:132px; }
+@media(max-width:640px) {
+ .project-tech-outside { margin-bottom:16px; padding:15px; }
+ .project-tech-outside .detail-live-button { width:100%; }
+}
