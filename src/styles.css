@@ -362,3 +362,11 @@ button { color: inherit; }
  .project-tech-outside { margin-bottom:16px; padding:15px; }
  .project-tech-outside .detail-live-button { width:100%; }
 }
+
+
+/* Explore cue and relocated portfolio return action */
+.explore-cue { display:inline-flex; align-items:center; gap:10px; color:#a5a5a1; font-size:11px; border-bottom:1px solid #777; padding-bottom:7px; letter-spacing:.01em; }
+.explore-cue svg { animation:explore-bob 1.35s ease-in-out infinite; }
+.intro-back-link { border:0; border-bottom:1px solid #777; background:transparent; color:#eee; cursor:pointer; }
+.intro-back-link:hover { color:#fff; }
+@keyframes explore-bob { 0%,100% { transform:translateY(-3px); } 50% { transform:translateY(4px); } }
