@@ -35,8 +35,11 @@ jobs:
       - name: Build static site
         run: bun run build
 
-      - name: Verify generated homepage
-        run: test -s .output/public/index.html
+      - name: Verify generated homepage and asset paths
+        run: |
+          test -s .output/public/index.html
+          grep -q '/portfolio-minimal/assets/' .output/public/index.html
+          test -n "$(find .output/public/assets -maxdepth 1 -name '*.css' -print -quit)"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
