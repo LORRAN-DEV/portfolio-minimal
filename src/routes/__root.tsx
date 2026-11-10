@@ -63,6 +63,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Portfolio — Web Design & Development" },
       { name: "description", content: "Projetos selecionados de web design, desenvolvimento de sites e landing pages." },
       { name: "author", content: "LORRAN-DEV" },
+      { property: "og:url", content: "https://lorran-dev.github.io/portfolio-minimal/" },
       { property: "og:title", content: "Portfolio — Web Design & Development" },
       { property: "og:description", content: "Projetos selecionados de web design e desenvolvimento." },
       { property: "og:type", content: "website" },
@@ -90,6 +91,15 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("utm_source") === "chatgpt.com") {
+      url.searchParams.delete("utm_source");
+      window.history.replaceState(window.history.state, "", url);
+    }
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
