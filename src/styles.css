@@ -370,3 +370,60 @@ button { color: inherit; }
 .intro-back-link { border:0; border-bottom:1px solid #777; background:transparent; color:#eee; cursor:pointer; }
 .intro-back-link:hover { color:#fff; }
 @keyframes explore-bob { 0%,100% { transform:translateY(-3px); } 50% { transform:translateY(4px); } }
+
+
+/* Visual identities for the four new interactive clinic concepts */
+.demo-site--gio { background:#f7f4fb; color:#32113a; }
+.demo-site--gio .demo-topline { background:#650078; color:#f5eafa; }
+.demo-site--gio .demo-nav { background:#fff; }
+.demo-site--gio .demo-brand { color:#75008a; font-family:Arial,sans-serif; font-weight:500; letter-spacing:-.06em; }
+.demo-site--gio .demo-nav-cta,.demo-site--gio .demo-contact { background:#16bd61; color:#fff; }
+.demo-site--gio .demo-hero { min-height:420px; background-position:center 42%; }
+.demo-site--gio .demo-services,.demo-site--gio .demo-faq { background:linear-gradient(135deg,#f6f1fc,#fff); }
+.demo-site--gio .demo-service-grid article { border-color:rgba(112,0,133,.18); border-radius:9px; }
+.demo-site--gio .demo-service-grid a { color:#77008b; }
+.demo-site--gio .demo-gallery { background:#fff; }
+.demo-site--gio .demo-contact { background:linear-gradient(110deg,#77008b,#9c1b91); }
+
+.demo-site--helen { background:#f4ecdf; color:#30302e; }
+.demo-site--helen .demo-topline { background:#292725; color:#f5e9d8; }
+.demo-site--helen .demo-nav { background:#f5eddf; }
+.demo-site--helen .demo-brand { color:#df6b24; font-family:Arial,sans-serif; font-weight:600; }
+.demo-site--helen .demo-nav-cta,.demo-site--helen .demo-contact { background:#e66a20; color:#fff; border-radius:24px; }
+.demo-site--helen .demo-hero { min-height:490px; background-position:center 35%; }
+.demo-site--helen .demo-services,.demo-site--helen .demo-faq { background:#f1e7d7; }
+.demo-site--helen .demo-service-grid article { border:0; border-radius:12px; box-shadow:0 8px 22px rgba(75,54,32,.08); background:#fbf8f2; }
+.demo-site--helen .demo-service-grid a { color:#d76521; }
+.demo-site--helen .demo-gallery { background:#f8f2e8; }
+.demo-site--helen .demo-contact { background:#e66a20; }
+
+.demo-site--essencia { background:#f8f7f3; color:#293a30; }
+.demo-site--essencia .demo-topline { background:#263e32; color:#e5e8dc; }
+.demo-site--essencia .demo-nav { background:#f8f7f3; }
+.demo-site--essencia .demo-brand { color:#294535; font-family:Georgia,serif; }
+.demo-site--essencia .demo-nav-cta,.demo-site--essencia .demo-contact { background:#304b3b; color:#f8f7f3; }
+.demo-site--essencia .demo-hero { min-height:500px; background-position:center; }
+.demo-site--essencia .demo-services,.demo-site--essencia .demo-faq { background:#fff; }
+.demo-site--essencia .demo-service-grid article { background:transparent; border:0; border-top:1px solid #d9ddd4; }
+.demo-site--essencia .demo-service-grid a { color:#b36b50; }
+.demo-site--essencia .demo-feature { background:#f0f1eb; }
+.demo-site--essencia .demo-gallery { background:#fff; }
+.demo-site--essencia .demo-contact { background:#294535; }
+
+.demo-site--lavanite { background:#fbfaf8; color:#34312e; }
+.demo-site--lavanite .demo-topline { background:#302b29; color:#eee5d8; }
+.demo-site--lavanite .demo-nav { background:#fbfaf8; }
+.demo-site--lavanite .demo-brand { color:#b99c72; font-family:Georgia,serif; }
+.demo-site--lavanite .demo-nav-cta,.demo-site--lavanite .demo-contact { background:#b99c72; color:#fff; }
+.demo-site--lavanite .demo-hero { min-height:490px; background-position:center 38%; }
+.demo-site--lavanite .demo-services,.demo-site--lavanite .demo-faq { background:#f3eadf; }
+.demo-site--lavanite .demo-service-grid article { background:#fff; border-color:#e4d8c8; }
+.demo-site--lavanite .demo-service-grid a { color:#b99c72; }
+.demo-site--lavanite .demo-gallery { background:#fff; }
+.demo-site--lavanite .demo-contact { background:#b99c72; }
+
+.demo-site--gio .demo-hero h2,.demo-site--helen .demo-hero h2 { font-family:Arial,sans-serif; font-weight:700; letter-spacing:-.04em; }
+.demo-site--essencia .demo-hero h2,.demo-site--lavanite .demo-hero h2 { font-family:Georgia,serif; font-weight:400; }
+@media(max-width:640px) {
+  .demo-site--gio .demo-hero,.demo-site--helen .demo-hero,.demo-site--essencia .demo-hero,.demo-site--lavanite .demo-hero { min-height:390px; }
+}
