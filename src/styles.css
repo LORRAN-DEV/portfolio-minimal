@@ -557,3 +557,65 @@ button { color: inherit; }
  .demo-clinic-rebuilt .clinic-results>div,.demo-clinic-rebuilt .clinic-demo-services>div,.demo-clinic-rebuilt .lavanite-reviews>div { grid-template-columns:1fr; }
  .demo-clinic-rebuilt .clinic-results img { height:180px; }
 }
+
+
+/* Complete reference sections for the four clinic concept demos */
+.demo-clinic-rebuilt .clinic-testimonials,.demo-clinic-rebuilt .clinic-gallery,
+.demo-clinic-rebuilt .helen-before-after,.demo-clinic-rebuilt .essence-team,
+.demo-clinic-rebuilt .essence-dna,.demo-clinic-rebuilt .essence-units,
+.demo-clinic-rebuilt .essence-lifestyle { padding:58px 8%; }
+.demo-clinic-rebuilt .clinic-testimonials,.demo-clinic-rebuilt .clinic-gallery,
+.demo-clinic-rebuilt .helen-before-after,.demo-clinic-rebuilt .essence-team,
+.demo-clinic-rebuilt .essence-units { text-align:center; }
+.demo-clinic-rebuilt .clinic-testimonials>h2,.demo-clinic-rebuilt .clinic-gallery>h2,
+.demo-clinic-rebuilt .helen-before-after>h2,.demo-clinic-rebuilt .essence-team>h2,
+.demo-clinic-rebuilt .essence-units>h2 { margin:12px 0 25px; }
+.demo-clinic-rebuilt .clinic-testimonials { background:#f8f5fa; }
+.demo-clinic-rebuilt .testimonial-carousel { max-width:760px; margin:25px auto 0; display:grid; grid-template-columns:44px 1fr 44px; align-items:center; gap:18px; }
+.demo-clinic-rebuilt .testimonial-carousel button { border:1px solid currentColor; background:transparent; width:40px; height:40px; border-radius:50%; cursor:pointer; }
+.demo-clinic-rebuilt .testimonial-carousel blockquote { margin:0; padding:25px; font-size:clamp(17px,2vw,24px); line-height:1.5; }
+.demo-clinic-rebuilt .testimonial-carousel blockquote small { display:block; margin-top:18px; font:9px Arial,sans-serif; letter-spacing:.15em; }
+.demo-clinic-rebuilt .clinic-gallery { background:#f7f4f1; }
+.demo-clinic-rebuilt .clinic-gallery>div { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:14px; max-width:1000px; margin:25px auto 0; }
+.demo-clinic-rebuilt .clinic-gallery img { width:100%; height:210px; object-fit:cover; }
+.demo-helen .helen-before-after { background:#eee2d2; }
+.demo-clinic-rebuilt .helen-before-after>div { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:1000px; margin:25px auto 0; }
+.demo-clinic-rebuilt .helen-before-after article { background:#fff; padding:8px; }
+.demo-clinic-rebuilt .helen-before-after img { width:100%; height:190px; object-fit:cover; }
+.demo-clinic-rebuilt .helen-before-after article span { display:flex; justify-content:space-between; padding:10px 5px 5px; font:9px Arial,sans-serif; letter-spacing:.12em; }
+.demo-clinic-rebuilt .helen-before-after article b { color:#d56a2b; }
+.demo-clinic-rebuilt .helen-video .clinic-video-placeholder { gap:10px; align-content:center; text-align:center; padding:24px; }
+.demo-clinic-rebuilt .clinic-video-placeholder>span { display:grid; place-items:center; width:54px; height:54px; border-radius:50%; background:#fff; color:#a85d36; }
+.demo-clinic-rebuilt .clinic-video-placeholder small { font-size:9px; letter-spacing:.12em; }
+.demo-essencia .essence-team { background:#eeeee7; }
+.demo-clinic-rebuilt .essence-team>div,.demo-clinic-rebuilt .essence-units>div { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1000px; margin:25px auto 0; text-align:left; }
+.demo-clinic-rebuilt .essence-team article,.demo-clinic-rebuilt .essence-units article { background:#fff; padding:12px; }
+.demo-clinic-rebuilt .essence-team img,.demo-clinic-rebuilt .essence-units img { width:100%; height:190px; object-fit:cover; }
+.demo-clinic-rebuilt .essence-team h3,.demo-clinic-rebuilt .essence-units h3 { font-size:16px; margin:12px 0 6px; }
+.demo-clinic-rebuilt .essence-team p,.demo-clinic-rebuilt .essence-units p { font:11px/1.6 Arial,sans-serif; opacity:.7; }
+.demo-essencia .essence-dna { display:grid; grid-template-columns:1fr 1fr; gap:8%; align-items:center; background:#e9e8df; }
+.demo-clinic-rebuilt .essence-dna h2 { font-size:clamp(27px,3.2vw,42px); font-weight:400; }
+.demo-clinic-rebuilt .essence-dna p { font:13px/1.8 Arial,sans-serif; }
+.demo-clinic-rebuilt .essence-dna-points article { display:grid; grid-template-columns:38px 1fr; gap:5px 12px; padding:16px 0; border-bottom:1px solid #30453735; font-size:13px; }
+.demo-clinic-rebuilt .essence-dna-points article b { font-weight:500; }
+.demo-clinic-rebuilt .essence-dna-points article span { grid-column:2; font:11px/1.6 Arial,sans-serif; opacity:.72; }
+.demo-essencia .essence-units { background:#fff; }
+.demo-essencia .essence-lifestyle { display:grid; grid-template-columns:1fr 1fr; gap:7%; align-items:center; background:#dfe5dc; }
+.demo-clinic-rebuilt .essence-lifestyle img { width:100%; height:300px; object-fit:cover; }
+.demo-clinic-rebuilt .essence-lifestyle h2 { font-size:clamp(27px,3vw,40px); font-weight:400; }
+.demo-clinic-rebuilt .essence-lifestyle p { font:13px/1.8 Arial,sans-serif; }
+.demo-essencia .essence-cta p { font:12px/1.7 Arial,sans-serif; }
+.demo-clinic-rebuilt .clinic-contact form>small { font-size:9px; opacity:.65; }
+.demo-clinic-rebuilt .clinic-demo-footer { align-items:center; }
+@media(max-width:700px) {
+ .demo-clinic-rebuilt .clinic-gallery>div,.demo-clinic-rebuilt .helen-before-after>div,
+ .demo-clinic-rebuilt .essence-team>div,.demo-clinic-rebuilt .essence-units>div { grid-template-columns:1fr 1fr; }
+ .demo-essencia .essence-dna,.demo-essencia .essence-lifestyle { grid-template-columns:1fr; }
+ .demo-clinic-rebuilt .essence-lifestyle img { height:230px; }
+}
+@media(max-width:430px) {
+ .demo-clinic-rebuilt .clinic-gallery>div,.demo-clinic-rebuilt .helen-before-after>div,
+ .demo-clinic-rebuilt .essence-team>div,.demo-clinic-rebuilt .essence-units>div { grid-template-columns:1fr; }
+ .demo-clinic-rebuilt .testimonial-carousel { grid-template-columns:30px 1fr 30px; gap:5px; }
+ .demo-clinic-rebuilt .testimonial-carousel button { width:30px; height:30px; }
+}
