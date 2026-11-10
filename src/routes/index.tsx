@@ -30,7 +30,7 @@ function LegacyDemoExperience({ project, onBack }: { project: (typeof projects)[
   const clinic = project.kind === "clinic";
   const hotel = project.kind === "hotel";
   const sales = project.kind === "sales";
-  const brand = clinic ? project.name : hotel ? "FOREST RETREAT" : "DOCE ESTAÇÃO.";
+  const brand = clinic ? project.name : hotel ? "FOREST RETREAT" : "DOCE ESTAÇÃO";
   const nav = clinic ? ["A clínica", "Especialidades", "Estrutura", "Dúvidas"] : hotel ? ["Experiência", "Acomodações", "Galeria", "Contato"] : ["Oferta", "Conteúdo", "Bônus", "Dúvidas"];
   const navTargets = hotel ? ["#demo-part-0", "#demo-part-1", "#demo-gallery", "#demo-contact"] : sales ? ["#demo-part-0", "#demo-part-1", "#demo-bonus", "#demo-faq"] : ["#demo-part-0", "#demo-part-1", "#demo-part-2", "#demo-part-3"];
   const cards = clinic
@@ -103,6 +103,15 @@ function Portfolio() {
     if (project) setSelectedProject(project);
   }, []);
 
+  useEffect(() => {
+    const isLegacyDemo = selectedProject?.kind === "hotel" || selectedProject?.kind === "sales";
+    document.title = isLegacyDemo
+      ? `${selectedProject.name} — Projeto Conceitual | Portfolio`
+      : "Portfolio — Web Design & Development";
+    return () => {
+      document.title = "Portfolio — Web Design & Development";
+    };
+  }, [selectedProject]);
 
   useEffect(() => {
     const nodes = document.querySelectorAll<HTMLElement>("[data-reveal]");
