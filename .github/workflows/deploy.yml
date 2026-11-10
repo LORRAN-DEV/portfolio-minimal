@@ -1,4 +1,4 @@
-name: Deploy portfolio to GitHub Pages
+name: Build static portfolio for GitHub Pages
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "portfolio-static-build"
   cancel-in-progress: true
 
 jobs:
@@ -41,18 +41,7 @@ jobs:
           grep -q '/portfolio-minimal/assets/' .output/public/index.html
           test -n "$(find .output/public/assets -maxdepth 1 -name '*.css' -print -quit)"
 
-      - name: Upload Pages artifact
+      - name: Upload build artifact for branch-based publishing
         uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
