@@ -2,8 +2,11 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  // GitHub Pages serves this repository from a subdirectory, not the domain root.
-  base: "/portfolio-minimal/",
+  // This preset accepts native Vite options under the "vite" key.
+  // GitHub Pages serves this repository from /portfolio-minimal/, not the domain root.
+  vite: {
+    base: "/portfolio-minimal/",
+  },
   tanstackStart: {
     // Generate static HTML so GitHub Pages can host the app without a Node server.
     prerender: {
@@ -12,7 +15,7 @@ export default defineConfig({
       autoStaticPathsDiscovery: true,
       failOnError: true,
     },
-    // Keep the existing custom SSR server entry for local/other deployments.
+    // Keep the existing custom server entry for local/other deployments.
     server: { entry: "server" },
   },
 });
